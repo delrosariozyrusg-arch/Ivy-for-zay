@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bebe ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,serif;background:linear-gradient(135deg,#fff3f5,#ffe0e6,#fff8f8);color:#741927}
+.page{min-height:100vh;display:none;align-items:center;justify-content:center;padding:24px;position:relative;text-align:center}
+.page.active{display:flex}
+.card{width:min(430px,94vw);padding:34px 25px;border-radius:28px;background:rgba(255,255,255,.86);box-shadow:0 12px 40px rgba(100,20,35,.16);border:2px solid rgba(140,30,50,.12);z-index:2}
+.cat{font-size:90px;margin-bottom:8px;animation:bounce 2s infinite}
+h1{font-size:40px;margin:8px 0 12px;color:#8d1728}
+h2{font-size:30px;margin:8px 0 15px}
+p{font-family:Arial,sans-serif;font-size:17px;line-height:1.65;color:#5e3038}
+button{border:0;background:#8d2635;color:white;border-radius:30px;padding:14px 27px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 6px 15px rgba(100,20,35,.2);margin:8px}
+.letter{max-height:58vh;overflow:auto;text-align:left;padding-right:5px}
+.letter p{margin:0}
+.flow{position:fixed;bottom:-45px;pointer-events:none;z-index:1;animation:float 7s linear forwards;font-size:25px}
+@keyframes float{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+@keyframes bounce{50%{transform:translateY(-8px)}}
+</style>
+</head>
+<body>
+
+<section class="page active" id="p1">
+<div class="card">
+<div class="cat">😽</div>
+<h1>Hi, my bebe! ❤️</h1>
+<p>May little surprise ako para sa'yo...</p>
+<p class="small">Will you open it? 🥹</p>
+<button onclick="next(2)">Yes, open it 💗</button>
+<button onclick="next(3)">Maybe later 😿</button>
+</div>
+</section>
+
+<section class="page" id="p2">
+<div class="card">
+<div class="cat">🥺🐱</div>
+<h2>Aw please? 💕</h2>
+<p>I prepared this little gift just for you.</p>
+<p>One more click, bebe? 🥹</p>
+<button onclick="next(4)">Okayyy 💗</button>
+</div>
+</section>
+
+<section class="page" id="p3">
+<div class="card">
+<div class="cat">😿🐾</div>
+<h2>I'll wait here...</h2>
+<p>Take your time, bebe. But I really hope you open my little surprise. ❤️</p>
+<button onclick="next(4)">Open it 🥹</button>
+</div>
+</section>
+
+<section class="page" id="p4">
+<div class="card">
+<div style="font-size:70px">🌹🌹🌹</div>
+<h1 style="font-style:italic">Flowers for you</h1>
+<p>💌 A little message from me</p>
+<button onclick="next(5)">Open the letter 💌</button>
+</div>
+</section>
+
+<section class="page" id="p5">
+<div class="card">
+<div style="font-size:55px">💗🐱💗</div>
+<h2>For my bebe</h2>
+<div class="letter">
+<p><b>Bebe,</b><br><br>
+I’m sorryy po kase na-offend kita, and hindi ko po sinasadya. Wala po akong intention na ma-offend ka or magkaroon tayo ng misunderstanding.<br><br>
+For me lang po, you have a baby face and a mature face, and both are so very, very beautiful po. Napaka-pretty at cuteee mo po 🥹🥹<br><br>
+I’ll be more careful with my words po, bebe, para hindi kita masaktan. Pangako poo. I lovee you, bebe 🥹🥹<br><br>
+And please don’t feel bad about yourself, okay? I hope you know how beautiful you are to me, and you never have to change anything just to feel enough. I’ll always remind you how special you are to me. 🥹❤️</p>
+</div>
+<p style="margin-top:18px"><b>Always, me. ❤️🐾</b></p>
+</div>
+</section>
+
+<script>
+function next(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById('p'+n).classList.add('active');
+}
+function floatItem(){
+ const x=document.createElement('div');
+ x.className='flow';
+ x.textContent=Math.random()>.45?'❤️':'🐱';
+ x.style.left=Math.random()*100+'vw';
+ x.style.fontSize=(18+Math.random()*20)+'px';
+ x.style.animationDuration=(5+Math.random()*4)+'s';
+ document.body.appendChild(x);
+ setTimeout(()=>x.remove(),9000);
+}
+setInterval(floatItem,500);
+</script>
+</body>
+</html>
